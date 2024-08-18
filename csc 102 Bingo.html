@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .bingo-card {
+            display: grid;
+            grid-template-columns: repeat(5, 60px);
+            grid-gap: 5px;
+            margin: 0 auto;
+        }
+        .bingo-card div {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        .bingo-card .marked {
+            background-color: #90ee90;
+        }
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bingo Game</h1>
+    <div class="bingo-card" id="bingoCard"></div>
+    <button onclick="generateCard()">Generate New Card</button>
+    <button onclick="checkBingo()">Check for Bingo</button>
+    <p id="message"></p>
+
+    <script>
+        function generateCard() {
+            const bingoCard = document.getElementById('bingoCard');
+            bingoCard.innerHTML = '';
+            let numbers = [];
+            
+            for (let i = 1; i <= 25; i++) {
+                numbers.push(i);
+            }
+            
+            numbers = numbers.sort(() => Math.random() - 0.5);
+            
+            for (let i = 0; i < 25; i++) {
+                const cell = document.createElement('div');
+                cell.textContent = numbers[i];
+                cell.addEventListener('click', function() {
+                    cell.classList.toggle('marked');
+                });
+                bingoCard.appendChild(cell);
+            }
+        }
+
+        function checkBingo() {
+            const cells = document.querySelectorAll('#bingoCard div');
+            let isBingo = false;
+
+            // Check rows and columns
+            for (let i = 0; i < 5; i++) {
+                if (checkLine(i, 0, 0, 1) || checkLine(0, i, 1, 0)) {
+                    isBingo = true;
+                    break;
+                }
+            }
+
+            // Check diagonals
+            if (checkLine(0, 0, 1, 1) || checkLine(0, 4, 1, -1)) {
+                isBingo = true;
+            }
+
+            document.getElementById('message').textContent = isBingo ? 'Bingo!' : 'No Bingo yet!';
+        }
+
+        function checkLine(startRow, startCol, rowInc, colInc) {
+            let count = 0;
+            for (let i = 0; i < 5; i++) {
+                const cell = document.querySelector(`#bingoCard div:nth-child(${(startRow + i * rowInc) * 5 + (startCol + i * colInc) + 1})`);
+                if (cell && cell.classList.contains('marked')) {
+                    count++;
+                }
+            }
+            return count === 5;
+        }
+
+        // Generate an initial Bingo card when the page loads
+        window.onload = generateCard;
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puppy Power</title>
+    <link rel = "stylesheet" href="csc 102 Puppy's css.css">
+    
+</head>
+<body>
+
+
+    <button onclick="Bark();">Bark</button>
+    <button onclick="stopBark();">stopBark</button>
+
+    <script>
+        alert("love of pup's")
+
+        function Inital(){
+          document.getElementById("barktButton").disabled = true;
+          document.getElementById("stopBark").disabled = false;
+        }
+
+        function Stop(){
+            document.getElementById("barktButton").disabled = false;
+            document.getElementById("stopBark").disabled = true; 
+        }
+
+        function Bark(){
+            var mySound = new sound("021020_small-dog-barkingwav-72422.mp3");
+            mySound.play();
+        }
+
+        function sound(src){
+            this.sound = document.createElement("audio");
+            this.sound.src = src;
+            this.play = function(){
+            this.sound.play();
+            }
+            
+        }
+
+        function stopBark(){
+            
+        }
+
+
+    </script>
+
+    <source controle>
+    <source src="021020_small-dog-barkingwav-72422.mp3" type="audio/mp3"></source>
+    <audio></audio>
+<nav>
+    <a href = "https://www.puppielove.com"></href>
+    
+
+</nav> 
+    <img src = "img/dog 1.jpg"/>
+    <p>
+        Welcome to the world of puppy's
+    </p>
+    
+    <h1>
+        The sweet life of puppy's
+    </h1>
+
+    <h2>
+        Development Stages
+    </h2>
+    <p>
+        Neonatal Period (0-2 weeks)
+
+Physical: Eyes and ears are closed, and puppies rely on their mother for warmth and nourishment.
+Behavior: Mostly sleep and eat, with little interaction
+    </p>
+
+    <h2>
+        Transitional Period (2-4 weeks)
+    </h2>
+
+    <P>
+        Physical: Eyes and ears open, begin to explore their surroundings.
+Behavior: Start to walk and play with siblings, begin social interactions.
+    </P>
+
+    <h2>
+        Socialization Period (4-12 weeks)
+    </h2>
+
+    <P>
+        Physical: Coordination improves, and they are more active.
+Behavior: Crucial time for socialization. Expose them to various people, pets, and environments to develop a well-adjusted adult dog.
+    </P>
+
+    <h2>
+        Juvenile Period (3-6 months)
+    </h2>
+
+    <p>
+        Physical: Rapid growth, teething.
+Behavior: Increased independence, may test boundaries.
+    </p>
+
+    <h2>
+        Adolescence (6-18 months)
+    </h2>
+
+    <p>
+        Physical: Near adult size.
+Behavior: May display stubbornness or increased energy. Training and consistency are important.
+    </p>
+
+    <footer>
+        <p>Copyright 2024 JC</p>
+    </footer>
+
+</body>
+</html>
