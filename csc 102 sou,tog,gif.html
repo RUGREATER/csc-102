@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sou,Tog,Gif</title>
+    <link function start>
+    <style>
+        * {
+            font-family: Pristina;
+        }
+
+        body{
+            height: 400px;
+            background-color: silver;
+        }
+
+        h1{
+            color:blue
+        
+        }
+
+        h6{
+            font-size: 20px;
+            color: (117, 188, 225);
+        }
+
+        button{
+            padding: 16px 30px;
+            margin: 6px 3px;
+            border: #3333bb;
+            border-radius: 5px;
+            height: 60px;
+            background-image: radial-gradient(gold,lightblue);
+            width: 150px;
+            text-decoration-color: rgb(6,6,84);
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="startButton" onclick="Inital();">Start</button>
+    <button id="stopButton" onclick="halt();" disabled="true">Stop</button>
+
+    <img src = "marching-band.webp" id = "imgMeme" style = "position:absolute; left: 100; top: 100; width: 200px;"/>
+    <p id = "msg"></p>
+
+    <source controls>
+    <source src="hail_to_the_chief.mp3" type="audio/mp3"></source>
+    </audio>
+
+    <br>
+    <br>
+
+    <!-- this button will play the music-->
+    <button onclick="Chief();">Hail to the Chief</button>
+    <!-- this button will stop the button-->
+     <button onclick="stopMusic();">Halt</button>
+
+    <script>
+        function Inital(){
+            // alert("init"); // show an alert that the function is working
+            // prevent the start button from being clicked
+            document.getElementById("startButton").disabled = true;
+            // allow the stop button to be clicked
+            document.getElementById("stopButton").disabled = false;
+        }
+
+        function halt(){
+            // alert("init"); // show an alert that the function is working
+            // allow the start button from being clicked
+            document.getElementById("startButton").disabled = false;
+            // prevent the stop button to be clicked
+            document.getElementById("stopButton").disabled = true;
+        }
+
+        // add a function to play 'Hail to the Chief'
+        function Chief(){
+            var mySound = new sound("hail_to_the_chief.mp3");
+            mySound.play();
+        }
+        // build the constructor to creat a sound object
+        function sound(src){
+            //creat a new audio element
+            this.sound = document.createElement("audio");
+            //set the source of the audio element
+            this.sound.src = src;
+            this.play = function(){
+                this.sound.play();
+            }
+        }
+
+        // function to stop playing the music
+        function stopMusic(){
+            window.location.reload(); // stop playing the music by refreshing the page
+        }
+    </script>
+</body>
+</html>

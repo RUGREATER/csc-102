@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="csc login.css">
+    <script src="csc login.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Welcome agent</h1>
+
+        <br>
+
+
+        <form id="loginSubmit" onclick = "return false">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+                <label for="badge number">badge</label>
+                <input type="badge number" id="badge number" name="badge number" required>
+                
+                <input type="login" onclick="checkCreds()">
+
+            </div>
+            <button type="login">login</button>
+
+             <p id = "loginStatus" >Status of login</p>
+        </form>
+    </div>
+</body>
+</html>
