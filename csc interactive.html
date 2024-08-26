@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Storytelling</title>
+    <link rel="stylesheet" href="csc interactive.css">
+    <script src = "csc interactive.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Choose Your Adventure!</h1>
+        </header>
+        <div id="story">
+            <p id="story-text">Once upon a time, in a land far, far away, there lived a curious little rabbit named Benny. One day, Benny found two paths in the forest. Which path should Benny take?</p>
+            <div id="choices">
+                <button class="choice-btn" onclick="makeChoice('left')">Take the Left Path</button>
+                <button class="choice-btn" onclick="makeChoice('right')">Take the Right Path</button>
+            </div>
+        </div>
+        <footer>
+            <p>© 2024 Interactive Storytelling for Kids</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
